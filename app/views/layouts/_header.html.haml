@@ -1,0 +1,36 @@
+
+.navbar.navbar-inverse.navbar-static-top
+  %btn.btn-navbar{ "data-toggle" => "collapse", "data-target" => ".navbar-collapse"}
+    %span3.icon-bar
+    %span.icon-bar
+    %span.icon-bar
+  %a.navbar-brand{:href => '/'}= 'First Aid E-learn'
+  
+  %ul.nav.navbar-nav
+    %li
+
+      %li= link_to 'New question', new_question_path
+
+      %li    
+        %li= link_to 'List of questions', questions_path
+
+
+
+
+
+  %ul.nav.navbar-nav.pull-right
+    
+
+      
+      
+    
+
+    - if user_signed_in?
+
+      %li= link_to current_user.try(:email), edit_user_registration_path
+      %li= link_to 'Logout', destroy_user_session_path, :method => :delete
+    - else
+
+      %li= link_to 'Sign in', new_user_session_path
+      %li= link_to 'Sign up', new_user_registration_path
+
