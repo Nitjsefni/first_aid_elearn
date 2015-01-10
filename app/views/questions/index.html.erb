@@ -1,9 +1,9 @@
 <h1>Listing questions</h1>
 
-<table>
+<table class="table">
   <thead>
     <tr>
-      <th>Title</th>
+      <th>Branch</th>
       <th>Text</th>
       <th>Question1</th>
       <th>Question2</th>
@@ -17,7 +17,7 @@
   <tbody>
     <% @questions.each do |question| %>
       <tr>
-        <td><%= question.title %></td>
+        <td><%= question.branch %></td>
         <td><%= question.text %></td>
         <td><%= question.question1 %></td>
         <td><%= question.question2 %></td>

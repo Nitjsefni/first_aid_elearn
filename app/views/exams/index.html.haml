@@ -1,0 +1,45 @@
+%h1 Listing exams
+
+%table.table
+  %tr
+    %th Title
+    %th Text
+    %th Level
+    %th Question1
+    %th Question2
+    %th Question3
+    %th Question4
+    %th Question5
+    %th Question6
+    %th Question7
+    %th Question8
+    %th Question9
+    %th Question10
+    %th Points
+    %th
+    %th
+    %th
+
+  - @exams.each do |exam|
+    %tr
+      %td= exam.title
+      %td= exam.text
+      %td= exam.level
+      %td= exam.question1
+      %td= exam.question2
+      %td= exam.question3
+      %td= exam.question4
+      %td= exam.question5
+      %td= exam.question6
+      %td= exam.question7
+      %td= exam.question8
+      %td= exam.question9
+      %td= exam.question10
+      %td= exam.points
+      %td= link_to 'Show', exam
+      %td= link_to 'Edit', edit_exam_path(exam)
+      %td= link_to 'Destroy', exam, :method => :delete, :data => { :confirm => 'Are you sure?' }
+
+%br
+
+= link_to 'New Exam', new_exam_path

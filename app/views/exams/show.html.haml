@@ -1,0 +1,48 @@
+%p#notice= notice
+
+%p
+  %b Title:
+  = @exam.title
+%p
+  %b Text:
+  = @exam.text
+%p
+  %b Level:
+  = @exam.level
+%p
+  %b Question1:
+  = @exam.question1
+%p
+  %b Question2:
+  = @exam.question2
+%p
+  %b Question3:
+  = @exam.question3
+%p
+  %b Question4:
+  = @exam.question4
+%p
+  %b Question5:
+  = @exam.question5
+%p
+  %b Question6:
+  = @exam.question6
+%p
+  %b Question7:
+  = @exam.question7
+%p
+  %b Question8:
+  = @exam.question8
+%p
+  %b Question9:
+  = @exam.question9
+%p
+  %b Question10:
+  = @exam.question10
+%p
+  %b Points:
+  = @exam.points
+
+= link_to 'Edit', edit_exam_path(@exam)
+\|
+= link_to 'Back', exams_path

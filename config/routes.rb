@@ -1,6 +1,8 @@
 Rails.application.routes.draw do
 
 
+  resources :exams
+
   resources :questions do
     collection { post :import }
   end
