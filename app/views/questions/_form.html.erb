@@ -12,32 +12,60 @@
   <% end %>
 
   <div class="field">
-    <%= f.label :branch %><br>
-    <%= f.text_field :branch %>
+    <%= f.label :level %><br>
+    <%= f.select :level, ['Beginner', 'Advanced'], {prompt: 'Select level'} , :onchange => "chooseBranchLevel();"%>
   </div>
+
+<script type="text/javascript">
+  function chooseBranchLevel(){
+    var branch_level = $("#question_level :selected").text();
+    var level_beg_div = document.getElementById('level_beg');
+    var level_adv_div = document.getElementById('level_adv');
+
+    if(branch_level == "Beginner"){
+     $("#myForm").html('<%= j render :partial => 'beg', :locals => { :f => f }%>');
+      
+    }else if(branch_level == "Advanced"){
+      $("#myForm").html('<%= j render :partial => 'adv', :locals => { :f => f }%>');
+      
+      
+    }
+  }
+  </script>
+
+      <div id="myForm">
+        
+      </div>
+       
+
+      
+
+
+
+
   <div class="field">
     <%= f.label :text %><br>
     <%= f.text_area :text %>
   </div>
   <div class="field">
-    <%= f.label :question1 %><br>
-    <%= f.text_area :question1 %>
+    <%= f.label :answer1 %><br>
+    <%= f.text_area :answer1 %>
   </div>
   <div class="field">
-    <%= f.label :question2 %><br>
-    <%= f.text_area :question2 %>
+    <%= f.label :answer2 %><br>
+    <%= f.text_area :answer2 %>
   </div>
   <div class="field">
-    <%= f.label :question3 %><br>
-    <%= f.text_area :question3 %>
+    <%= f.label :answer3 %><br>
+    <%= f.text_area :answer3 %>
   </div>
   <div class="field">
-    <%= f.label :question4 %><br>
-    <%= f.text_area :question4 %>
+    <%= f.label :answer4 %><br>
+    <%= f.text_area :answer4 %>
   </div>
   <div class="field">
-    <%= f.label :questionR %><br>
-    <%= f.text_area :questionR %>
+    <%= f.label :answerR %><br>
+    <%= f.text_area :answerR %>
   </div>
   <div class="actions">
     <%= f.submit class: 'btn btn-primary' %>

@@ -5,11 +5,11 @@
     <tr>
       <th>Branch</th>
       <th>Text</th>
-      <th>Question1</th>
-      <th>Question2</th>
-      <th>Question3</th>
-      <th>Question4</th>
-      <th>Questionr</th>
+      <th>Answer 1</th>
+      <th>Answer 2</th>
+      <th>Answer 3</th>
+      <th>Answer 4</th>
+      <th>Answer right</th>
       <th colspan="3"></th>
     </tr>
   </thead>
@@ -19,11 +19,11 @@
       <tr>
         <td><%= question.branch %></td>
         <td><%= question.text %></td>
-        <td><%= question.question1 %></td>
-        <td><%= question.question2 %></td>
-        <td><%= question.question3 %></td>
-        <td><%= question.question4 %></td>
-        <td><%= question.questionR %></td>
+        <td><%= question.answer1 %></td>
+        <td><%= question.answer2 %></td>
+        <td><%= question.answer3 %></td>
+        <td><%= question.answer4 %></td>
+        <td><%= question.answerR %></td>
         <td><%= link_to 'Show', question %></td>
         <td><%= link_to 'Edit', edit_question_path(question) %></td>
         <td><%= link_to 'Destroy', question, method: :delete, data: { confirm: 'Are you sure?' } %></td>

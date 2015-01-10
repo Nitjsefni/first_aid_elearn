@@ -7,13 +7,13 @@
   
   %ul.nav.navbar-nav
     
-    - if current_user.try(:admin?)
+    - if current_user.try(:instructor?)
       %li
         %li= link_to 'New question', new_question_path
 
       %li    
         %li= link_to 'List of questions', questions_path
-
+    - if current_user.try(:admin?)
       %li    
         %li= link_to 'New exam', new_exam_path
 

@@ -1,0 +1,4 @@
+ <div class="field">
+        <%= f.label :branch %><br>
+        <%= f.select :branch, Question::CATEGORIES_BEG.map {|p| [ p[0] ] }, {prompt: 'Wybierz kategorie'}  %>
+  </div>

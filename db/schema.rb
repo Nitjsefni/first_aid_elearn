@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20141210110138) do
+ActiveRecord::Schema.define(version: 20150110103302) do
 
   create_table "exams", force: true do |t|
     t.string   "title"
@@ -35,14 +35,15 @@ ActiveRecord::Schema.define(version: 20141210110138) do
   create_table "questions", force: true do |t|
     t.string   "branch"
     t.text     "text"
-    t.text     "question1"
-    t.text     "question2"
-    t.text     "question3"
-    t.text     "question4"
-    t.text     "questionR"
+    t.text     "answer1"
+    t.text     "answer2"
+    t.text     "answer3"
+    t.text     "answer4"
+    t.text     "answerR"
     t.datetime "created_at"
     t.datetime "updated_at"
     t.integer  "questionID"
+    t.string   "level"
   end
 
   create_table "users", force: true do |t|
@@ -60,6 +61,7 @@ ActiveRecord::Schema.define(version: 20141210110138) do
     t.datetime "updated_at"
     t.string   "name"
     t.boolean  "admin"
+    t.boolean  "instructor"
   end
 
   add_index "users", ["email"], name: "index_users_on_email", unique: true, using: :btree
