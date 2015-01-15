@@ -7,34 +7,45 @@
           %li= msg
 
   .field
-    = f.label :title
+    = f.label :title, "Tytuł"
+    %br
     = f.text_field :title
   .field
-    = f.label :text
+    = f.label :text, "Opis"
+    %br
     = f.text_area :text
   .field
-    = f.label :level
-    = f.select :level, ['Beginner', 'Advanced'], {prompt: 'Select level'}, :onchange => "chooseBranchLevel();"
+    = f.label :level, "Poziom trudności"
+    %br
+    = f.select :level, ['Początkujący', 'Zaawansowany'], {prompt: 'Wybierz poziom'}, :onchange => "chooseBranchLevel();"
+
 
   :javascript
+    $(document).on('page:change', function () {
+      chooseBranchLevel();
+    });
     function chooseBranchLevel(){
       var branch_level = $("#exam_level :selected").text();
       var level_beg_div = document.getElementById('level_beg');
       var level_adv_div = document.getElementById('level_adv');
 
-      if(branch_level == "Beginner"){
+      if(branch_level == "Początkujący"){
        $("#myForm").html('#{j render :partial => 'beg', :locals => { :f => f }}');
         
-      }else if(branch_level == "Advanced"){
+      }else if(branch_level == "Zaawansowany"){
         $("#myForm").html('#{j render :partial => 'adv', :locals => { :f => f }}');
         
         
       }
     }
+
+
+
   #myForm
   
   .field
-    = f.label :points
+    = f.label :points, "Ilość punktów"
+    %br
     = f.number_field :points
   .actions
-    = f.submit 'Save'
+    = f.submit 'Zapisz'

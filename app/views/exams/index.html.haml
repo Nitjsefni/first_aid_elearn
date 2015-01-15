@@ -1,21 +1,21 @@
-%h1 Listing exams
+%h1 Lista egzaminów
 
 %table.table
   %tr
-    %th Title
-    %th Text
-    %th Level
-    %th Question1
-    %th Question2
-    %th Question3
-    %th Question4
-    %th Question5
-    %th Question6
-    %th Question7
-    %th Question8
-    %th Question9
-    %th Question10
-    %th Points
+    %th Tytuł
+    %th Opis
+    %th Poziom
+    %th Pytanie 1
+    %th Pytanie 2
+    %th Pytanie 3
+    %th Pytanie 4
+    %th Pytanie 5
+    %th Pytanie 6
+    %th Pytanie 7
+    %th Pytanie 8
+    %th Pytanie 9
+    %th Pytanie 10
+    %th Ilość punktów
     %th
     %th
     %th
@@ -25,21 +25,21 @@
       %td= exam.title
       %td= exam.text
       %td= exam.level
-      %td= exam.question1
-      %td= exam.question2
-      %td= exam.question3
-      %td= exam.question4
-      %td= exam.question5
-      %td= exam.question6
-      %td= exam.question7
-      %td= exam.question8
-      %td= exam.question9
-      %td= exam.question10
+      %td= @question_text.find(exam.question1).text
+      %td= @question_text.find(exam.question2).text
+      %td= @question_text.find(exam.question3).text
+      %td= @question_text.find(exam.question4).text
+      %td= @question_text.find(exam.question5).text
+      %td= @question_text.find(exam.question6).text
+      %td= @question_text.find(exam.question7).text
+      %td= @question_text.find(exam.question8).text
+      %td= @question_text.find(exam.question9).text
+      %td= @question_text.find(exam.question10).text
       %td= exam.points
-      %td= link_to 'Show', exam
-      %td= link_to 'Edit', edit_exam_path(exam)
-      %td= link_to 'Destroy', exam, :method => :delete, :data => { :confirm => 'Are you sure?' }
+      %td= link_to 'Pokaż', exam
+      %td= link_to 'Edytuj', edit_exam_path(exam)
+      %td= link_to 'Usuń', exam, :method => :delete, :data => { :confirm => 'Czy na pewno?' }
 
 %br
 
-= link_to 'New Exam', new_exam_path
+= link_to 'Nowy egzamin', new_exam_path

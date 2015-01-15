@@ -5,12 +5,17 @@ class ExamsController < ApplicationController
   # GET /exams
   # GET /exams.json
   def index
-    @exams = Exam.all
+    @exams = Exam.all.order("level ASC")
+    @question_text = Question.select("text")
+
   end
 
   # GET /exams/1
   # GET /exams/1.json
   def show
+  
+    @question_text = Question.select("text")
+
   end
 
   # GET /exams/new

@@ -1,46 +1,56 @@
 %p#notice= notice
 
 %p
-  %b Title:
+  %b Tytuł:
   = @exam.title
 %p
-  %b Text:
+  %b Opis:
   = @exam.text
 %p
-  %b Level:
+  %b Poziom:
   = @exam.level
 %p
-  %b Question1:
-  = @exam.question1
+  %b Pytanie 1:
+  %br
+  = @question_text.find(@exam.question1).text
 %p
-  %b Question2:
-  = @exam.question2
+  %b Pytanie 2:
+  %br
+  = @question_text.find(@exam.question2).text
 %p
-  %b Question3:
-  = @exam.question3
+  %b Pytanie 3:
+  %br
+  = @question_text.find(@exam.question3).text
 %p
-  %b Question4:
-  = @exam.question4
+  %b Pytanie 4:
+  %br
+  = @question_text.find(@exam.question4).text
 %p
-  %b Question5:
-  = @exam.question5
+  %b Pytanie 5:
+  %br
+  = @question_text.find(@exam.question5).text
 %p
-  %b Question6:
-  = @exam.question6
+  %b Pytanie 6:
+  %br
+  = @question_text.find(@exam.question6).text
 %p
-  %b Question7:
-  = @exam.question7
+  %b Pytanie 7:
+  %br
+  = @question_text.find(@exam.question7).text
 %p
-  %b Question8:
-  = @exam.question8
+  %b Pytanie 8:
+  %br
+  = @question_text.find(@exam.question8).text
 %p
-  %b Question9:
-  = @exam.question9
+  %b Pytanie 9:
+  %br
+  = @question_text.find(@exam.question9).text
 %p
-  %b Question10:
-  = @exam.question10
+  %b Pytanie 10:
+  %br
+  = @question_text.find(@exam.question10).text
 %p
-  %b Points:
+  %b Ilość punktów:
   = @exam.points
 
 = link_to 'Edit', edit_exam_path(@exam)

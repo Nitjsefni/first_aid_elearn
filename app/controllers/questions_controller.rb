@@ -5,7 +5,7 @@ class QuestionsController < ApplicationController
   # GET /questions
   # GET /questions.json
   def index
-    @questions = Question.all
+    @questions = Question.all.order("level ASC").order("branch ASC").pageKN(params[:page]).per(10)
   end
 
   # GET /questions/1

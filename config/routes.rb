@@ -1,11 +1,13 @@
 Rails.application.routes.draw do
 
 
+
   resources :exams
 
   resources :questions do
     collection { post :import }
   end
+
   root to: "questions#index"
 
    devise_for :users, :controllers => { :registrations => "registrations" }

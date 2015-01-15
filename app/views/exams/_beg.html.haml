@@ -1,40 +1,40 @@
 .field
   = f.label :question1, "Pytanie z bezpieczeństwa"
   %br
-  = select(:question1, :id, Question.where(level: 'Beginner', branch: 'Bezpieczeństwo').collect {|p| [ p.text, p.id ] }, {prompt: 'Wybierz pytanie'})
+  = f.select(:question1, Question.all.where(level: 'Początkujący', branch: 'Bezpieczeństwo').collect {|p| [ p.text, p.id ] }, {prompt: 'Wybierz pytanie'})
 .field
   = f.label :question2, "Pytanie z ABC i wywiadu środowiskowego"
   %br
-  = select(:question2, :id, Question.where(level: 'Beginner', branch: 'ABC, Wywiad środowiskowy').collect {|p| [ p.text, p.id ] }, {prompt: 'Wybierz pytanie'})
+  = f.select(:question2, Question.where(level: 'Początkujący', branch: 'ABC, Wywiad środowiskowy').collect {|p| [ p.text, p.id ] }, {prompt: 'Wybierz pytanie'})
 .field
   = f.label :question3, "Pytanie z krwotokow"
   %br
-  = select(:question3, :id, Question.where(level: 'Beginner' , branch: 'Krwotoki').collect {|p| [ p.text, p.id ] }, {prompt: 'Wybierz pytanie'})
+  = f.select(:question3, Question.where(level: 'Początkujący' , branch: 'Krwotoki').collect {|p| [ p.text, p.id ] }, {prompt: 'Wybierz pytanie'})
 .field
   = f.label :question4, "Pytanie z omdleń i utrat przytomności"
   %br
-  = select(:question4, :id, Question.where(level: 'Beginner' , branch: 'Omdlenia i utraty przytomności').collect {|p| [ p.text, p.id ] }, {prompt: 'Wybierz pytanie'})
+  = f.select(:question4, Question.where(level: 'Początkujący' , branch: 'Omdlenia i utraty przytomności').collect {|p| [ p.text, p.id ] }, {prompt: 'Wybierz pytanie'})
 .field
   = f.label :question5, "Pytanie z oparzeń i odmrożeń"
   %br
-  = select(:question5, :id, Question.where(level: 'Beginner' , branch: 'Oparzenia, odmrożenia').collect {|p| [ p.text, p.id ] }, {prompt: 'Wybierz pytanie'})
+  = f.select(:question5, Question.where(level: 'Początkujący' , branch: 'Oparzenia, odmrożenia').collect {|p| [ p.text, p.id ] }, {prompt: 'Wybierz pytanie'})
 .field
   = f.label :question6, "Pytanie z hipotermii i hipertermii"
   %br
-  = select(:question6, :id, Question.where(level: 'Beginner' , branch: 'Hipotermia, hipertermia').collect {|p| [ p.text, p.id ] }, {prompt: 'Wybierz pytanie'})
+  = f.select(:question6, Question.where(level: 'Początkujący' , branch: 'Hipotermia, hipertermia').collect {|p| [ p.text, p.id ] }, {prompt: 'Wybierz pytanie'})
 .field
   = f.label :question7, "Pytanie z urazów mechanicznych"
   %br
-  = select(:question7, :id, Question.where(level: 'Beginner' , branch: 'Urazy mechaniczne').collect {|p| [ p.text, p.id ] }, {prompt: 'Wybierz pytanie'})
+  = f.select(:question7, Question.where(level: 'Początkujący' , branch: 'Urazy mechaniczne').collect {|p| [ p.text, p.id ] }, {prompt: 'Wybierz pytanie'})
 .field
   = f.label :question8, "Pytanie z ataków epilepsji"
   %br
-  = select(:question8, :id, Question.where(level: 'Beginner' , branch: 'Epilepsja').collect {|p| [ p.text, p.id ] }, {prompt: 'Wybierz pytanie'})
+  = f.select(:question8, Question.where(level: 'Początkujący' , branch: 'Epilepsja').collect {|p| [ p.text, p.id ] }, {prompt: 'Wybierz pytanie'})
 .field
   = f.label :question9, "Pytanie z zadławień"
   %br
-  = select(:question9, :id, Question.where(level: 'Beginner' , branch: 'Zadławienia').collect {|p| [ p.text, p.id ] }, {prompt: 'Wybierz pytanie'})
+  = f.select(:question9, Question.where(level: 'Początkujący' , branch: 'Zadławienia').collect {|p| [ p.text, p.id ] }, {prompt: 'Wybierz pytanie'})
 .field
   = f.label :question10, "Pytanie z RKO"
   %br
-  = select(:question10, :id, Question.where(level: 'Beginner' , branch: 'RKO').collect {|p| [ p.text, p.id ] }, {prompt: 'Wybierz pytanie'})
+  = f.select(:question10, Question.where(level: 'Początkujący' , branch: 'RKO').collect {|p| [ p.text, p.id ] }, {prompt: 'Wybierz pytanie'})

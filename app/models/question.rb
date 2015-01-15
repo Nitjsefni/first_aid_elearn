@@ -1,5 +1,5 @@
 class Question < ActiveRecord::Base
-  belongs_to :exam, :class_name => Exam, :foreign_key => :id
+  belongs_to :exam
   validates_presence_of  :level, :text, :answerR, :answer1, :answer2, :answer3, :answer4
 
   CATEGORIES_BEG = [

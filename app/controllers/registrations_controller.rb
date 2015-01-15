@@ -1,4 +1,6 @@
 class RegistrationsController < Devise::RegistrationsController
+
+
   def update
     @user = User.find(current_user.id)
 
@@ -21,8 +23,6 @@ class RegistrationsController < Devise::RegistrationsController
       render "edit"
     end
   end
-
-  private
 
   # check if we need password to update user data
   # ie if password or email was changed

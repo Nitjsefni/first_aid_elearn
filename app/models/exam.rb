@@ -1,6 +1,6 @@
 class Exam < ActiveRecord::Base
-  has_many :quesitons
-  validates_presence_of :title, :text, :level, :points, :question1
+  has_many :questions
+  validates_presence_of :title, :text, :level, :points
 
 
 end

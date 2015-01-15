@@ -9,16 +9,16 @@
     
     - if current_user.try(:instructor?)
       %li
-        %li= link_to 'New question', new_question_path
+        %li= link_to 'Nowe pytanie', new_question_path
 
       %li    
-        %li= link_to 'List of questions', questions_path
+        %li= link_to 'Lista pytań', questions_path
     - if current_user.try(:admin?)
       %li    
-        %li= link_to 'New exam', new_exam_path
+        %li= link_to 'Nowy egzamin', new_exam_path
 
       %li    
-        %li= link_to 'List of exams', exams_path
+        %li= link_to 'Lista egzaminów', exams_path
 
 
 
@@ -32,9 +32,9 @@
     - if user_signed_in?
 
       %li= link_to current_user.try(:email), edit_user_registration_path
-      %li= link_to 'Logout', destroy_user_session_path, :method => :delete
+      %li= link_to 'Wyloguj', destroy_user_session_path, :method => :delete
     - else
       
-      %li= link_to 'Sign in', new_user_session_path
-      %li= link_to 'Sign up', new_user_registration_path
+      %li= link_to 'Logowanie', new_user_session_path
+      %li= link_to 'Rejestracja', new_user_registration_path
 

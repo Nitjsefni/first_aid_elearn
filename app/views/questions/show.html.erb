@@ -1,39 +1,48 @@
 <p id="notice"><%= notice %></p>
 
 <p>
-  <strong>Branch:</strong>
+  <strong>Dział:</strong>
+
   <%= @question.branch %>
 </p>
-
 <p>
-  <strong>Text:</strong>
+  <strong>Poziom:</strong>
+  <%= @question.level %>
+</p>
+<p>
+  <strong>Treść:</strong>
   <%= @question.text %>
 </p>
 
 <p>
-  <strong>Answer1:</strong>
+  <strong>Odpowiedź 1</strong>
+  <br>
   <%= @question.answer1 %>
 </p>
 
 <p>
-  <strong>Answer2:</strong>
+  <strong>Odpowiedź 2:</strong>
+  <br>
   <%= @question.answer2 %>
 </p>
 
 <p>
-  <strong>Answer3:</strong>
+  <strong>Odpowiedź 3:</strong>
+  <br>
   <%= @question.answer3 %>
 </p>
 
 <p>
-  <strong>Answer4:</strong>
+  <strong>Odpowidź 4:</strong>
+  <br>
   <%= @question.answer4 %>
 </p>
 
 <p>
-  <strong>AnswerR:</strong>
+  <strong>Odpowiedź poprawna:</strong>
+  <br>
   <%= @question.answerR %>
 </p>
 
-<%= link_to 'Edit', edit_question_path(@question) %> |
-<%= link_to 'Back', questions_path %>
+<%= link_to 'Edytuj', edit_question_path(@question) %> |
+<%= link_to 'Wróć', questions_path %>
