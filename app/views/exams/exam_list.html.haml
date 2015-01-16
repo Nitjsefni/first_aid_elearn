@@ -1,0 +1,24 @@
+%h1 Lista egzaminów
+
+%table.table
+  %tr
+    %th Tytuł
+    %th Opis
+    %th Poziom
+    %th Ilość punktów
+    %th
+
+
+  - @exams.each do |exam|
+    %tr
+      %td= exam.title
+      %td= exam.text
+      %td= exam.level
+      %td= exam.points
+      -if exam.level == 'Zaawansowany' && @points < 100
+        %td Masz za mało punktów
+      - else 
+        %td= link_to 'Podejdź do egzaminu', take_exam_path(exam.id)
+
+
+%br

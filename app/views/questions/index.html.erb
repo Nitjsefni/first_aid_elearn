@@ -2,9 +2,9 @@
 
 <table class="table">
   <thead>
-    <tr>
-      <th>Dział</th>
+    <tr>     
       <th>Poziom</th>
+      <th>Dział</th>
       <th>Treść</th>
       <th>Odpowiedź 1</th>
       <th>Odpowiedź 2</th>
@@ -18,8 +18,8 @@
   <tbody>
     <% @questions.each do |question| %>
       <tr>
-        <td><%= question.branch %></td>
         <td><%= question.level %></td>
+        <td><%= question.branch %></td>
         <td><%= question.text %></td>
         <td><%= question.answer1 %></td>
         <td><%= question.answer2 %></td>
@@ -36,4 +36,5 @@
 
 <br>
 <%= paginate @questions %>
+<br>
 <%= link_to 'Nowe pytanie', new_question_path %>

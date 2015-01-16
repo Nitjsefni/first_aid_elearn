@@ -1,7 +1,16 @@
 class ExamsController < ApplicationController
   before_filter :authenticate_user!
+  before_filter :auth_admin 
+ 
+  skip_before_filter :auth_admin, :only => [:take_exam, :exam_list]
   before_action :set_exam, only: [:show, :edit, :update, :destroy]
 
+def auth_admin
+    redirect_to root_path unless current_user && current_user.admin?
+end
+def check_points
+    
+end
   # GET /exams
   # GET /exams.json
   def index
@@ -10,6 +19,13 @@ class ExamsController < ApplicationController
 
   end
 
+  def take_exam
+
+  end
+  def exam_list
+    @exams = Exam.all.order("level ASC")
+    @points = current_user.points
+  end
   # GET /exams/1
   # GET /exams/1.json
   def show

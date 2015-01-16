@@ -7,8 +7,9 @@ Rails.application.routes.draw do
   resources :questions do
     collection { post :import }
   end
-
-  root to: "questions#index"
+  get '/exams_test/:id', to: 'exams#take_exam', as: :take_exam
+  get '/exams_list', to: 'exams#exam_list', as: :exam_list
+  root to: "course#index"
 
    devise_for :users, :controllers => { :registrations => "registrations" }
   # The priority is based upon order of creation: first created -> highest priority.
