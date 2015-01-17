@@ -1,5 +1,12 @@
 class RegistrationsController < Devise::RegistrationsController
 
+  def create
+      super do
+        up = UserProgress.new(:user_id => resource.id)
+        up.save
+
+    end
+  end
 
   def update
     @user = User.find(current_user.id)

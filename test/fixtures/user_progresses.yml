@@ -1,0 +1,51 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  user_id: 1
+  p1: false
+  p2: false
+  p3: false
+  p4: false
+  p5: false
+  p6: false
+  p7: false
+  p8: false
+  p9: false
+  p10: false
+  poczatkujacy: false
+  z1: false
+  z2: false
+  z3: false
+  z4: false
+  z5: false
+  z6: false
+  z7: false
+  z8: false
+  z9: false
+  z10: false
+  zaawansowany: false
+
+two:
+  user_id: 1
+  p1: false
+  p2: false
+  p3: false
+  p4: false
+  p5: false
+  p6: false
+  p7: false
+  p8: false
+  p9: false
+  p10: false
+  poczatkujacy: false
+  z1: false
+  z2: false
+  z3: false
+  z4: false
+  z5: false
+  z6: false
+  z7: false
+  z8: false
+  z9: false
+  z10: false
+  zaawansowany: false

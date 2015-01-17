@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150115170911) do
+ActiveRecord::Schema.define(version: 20150117103016) do
 
   create_table "exams", force: true do |t|
     t.string   "title"
@@ -46,6 +46,34 @@ ActiveRecord::Schema.define(version: 20150115170911) do
     t.string   "level"
   end
 
+  create_table "user_progresses", force: true do |t|
+    t.integer  "user_id"
+    t.boolean  "p1"
+    t.boolean  "p2"
+    t.boolean  "p3"
+    t.boolean  "p4"
+    t.boolean  "p5"
+    t.boolean  "p6"
+    t.boolean  "p7"
+    t.boolean  "p8"
+    t.boolean  "p9"
+    t.boolean  "p10"
+    t.boolean  "poczatkujacy"
+    t.boolean  "z1"
+    t.boolean  "z2"
+    t.boolean  "z3"
+    t.boolean  "z4"
+    t.boolean  "z5"
+    t.boolean  "z6"
+    t.boolean  "z7"
+    t.boolean  "z8"
+    t.boolean  "z9"
+    t.boolean  "z10"
+    t.boolean  "zaawansowany"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
   create_table "users", force: true do |t|
     t.string   "email",                  default: "", null: false
     t.string   "encrypted_password",     default: "", null: false
@@ -62,7 +90,7 @@ ActiveRecord::Schema.define(version: 20150115170911) do
     t.string   "name"
     t.boolean  "admin"
     t.boolean  "instructor"
-    t.integer  "points"
+    t.integer  "points",                 default: 0
   end
 
   add_index "users", ["email"], name: "index_users_on_email", unique: true, using: :btree

@@ -20,11 +20,17 @@ end
   end
 
   def take_exam
+      @exam = Exam.find(params[:id])
 
+      @questions = Questions.where(level: @exam.level)
+      @exams_questions = @questions.where(id: [@exam.question1, @exam.question2, @exam.question3, @exam.question4, @exam.question5, @exam.question6, @exam.question7, @exam.question8, @exam.question9, @exam.question10])
   end
   def exam_list
     @exams = Exam.all.order("level ASC")
-    @points = current_user.points
+    @access_beg = UserProgress.select(:poczatkujacy).where("user_id = ?", current_user.id).take
+    @access_adv = UserProgress.select(:zaawansowany).where("user_id = ?", current_user.id).take
+    
+  
   end
   # GET /exams/1
   # GET /exams/1.json
@@ -91,6 +97,6 @@ end
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def exam_params
-      params.require(:exam).permit(:title, :text, :level, :question1, :question2, :question3, :question4, :question5, :question6, :question7, :question8, :question9, :question10, :points)
+      params.require(:exam).permit(:id, :title, :text, :level, :question1, :question2, :question3, :question4, :question5, :question6, :question7, :question8, :question9, :question10, :points)
     end
 end

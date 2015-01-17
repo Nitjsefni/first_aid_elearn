@@ -6,7 +6,7 @@
     %th Opis
     %th Poziom
     %th Ilość punktów
-    %th
+    %th Podejdź do egzaminu
 
 
   - @exams.each do |exam|
@@ -15,10 +15,13 @@
       %td= exam.text
       %td= exam.level
       %td= exam.points
-      -if exam.level == 'Zaawansowany' && @points < 100
-        %td Masz za mało punktów
-      - else 
+      -if @access_adv.zaawansowany && exam.level == "Zaawansowany"
         %td= link_to 'Podejdź do egzaminu', take_exam_path(exam.id)
+      - elsif @access_beg.poczatkujacy && exam.level == "Początkujący"
+        %td= link_to 'Podejdź do egzaminu', take_exam_path(exam.id)
+      - else
+        %td Ukończ najpierw do poziomu odpowiedni kurs!
+
 
 
 %br
