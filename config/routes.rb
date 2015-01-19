@@ -16,9 +16,31 @@ Rails.application.routes.draw do
   get '/course_beg', to: 'course#beg_index', as:  :beg_course_index
   get '/course_adv', to: 'course#adv_index', as:  :adv_course_index
 
-  get '/course_beg/branch_security', to: 'course#branch_security', as:  :branch_security
+  get '/course_beg/branch_security',                 to: 'course#beg_branch_security',                as:  :beg_branch_security
+  get '/course_beg/branch_abc_sample',               to: 'course#beg_branch_abc_sample',              as:  :beg_branch_abc_sample
+  get '/course_beg/branch_bleeding',                 to: 'course#beg_branch_bleeding',                as:  :beg_branch_bleeding
+  get '/course_beg/branch_consciousness',            to: 'course#beg_branch_consciousness',           as:  :beg_branch_consciousness
+  get '/course_beg/branch_scald_frostbite',          to: 'course#beg_branch_scald_frostbite',         as:  :beg_branch_scald_frostbite
+  get '/course_beg/branch_hypothermia_hyperthermia', to: 'course#beg_branch_hypothermia_hyperthermia',as:  :beg_branch_hypothermia_hyperthermia
+  get '/course_beg/branch_mech_injury',              to: 'course#beg_branch_mech_injury',             as:  :beg_branch_mech_injury
+  get '/course_beg/branch_epilepsy',                 to: 'course#beg_branch_epilepsy',                as:  :beg_branch_epilepsy
+  get '/course_beg/branch_chocking',                 to: 'course#beg_branch_chocking',                as:  :beg_branch_chocking
+  get '/course_beg/branch_CPR',                      to: 'course#beg_branch_CPR',                     as:  :beg_branch_CPR
+  
+  get '/course_adv/branch_heart_attack',        to: 'course#adv_branch_heart_attack',         as:  :adv_branch_heart_attack
+  get '/course_adv/branch_poisoning',           to: 'course#adv_branch_poisoning',            as:  :adv_branch_poisoning
+  get '/course_adv/branch_foreign_body',        to: 'course#adv_branch_foreign_body',         as:  :adv_branch_foreign_body
+  get '/course_adv/branch_AED',                 to: 'course#adv_branch_AED',                  as:  :adv_branch_AED
+  get '/course_adv/branch_electrocution',       to: 'course#adv_branch_electrocution',        as:  :adv_branch_electrocution
+  get '/course_adv/branch_blood_pressure_pulse',to: 'course#adv_branch_blood_pressure_pulse', as:  :adv_branch_blood_pressure_pulse
+  get '/course_adv/branch_stroke',              to: 'course#adv_branch_stroke',               as:  :adv_branch_stroke
+  get '/course_adv/branch_diabetes',            to: 'course#adv_branch_diabetes',             as:  :adv_branch_diabetes
+  get '/course_adv/branch_pneumothorax',        to: 'course#adv_branch_pneumothorax',         as:  :adv_branch_pneumothorax
+  get '/course_adv/branch_shock',               to: 'course#adv_branch_shock',                as:  :adv_branch_shock
+
   get '/course/check_answers' => 'course#check_answers', :as => :check_answers
-   devise_for :users, :controllers => { :registrations => "registrations" }
+
+  devise_for :users, :controllers => { :registrations => "registrations" }
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 

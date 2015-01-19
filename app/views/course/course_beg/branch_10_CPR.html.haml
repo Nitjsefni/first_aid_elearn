@@ -1,0 +1,119 @@
+
+
+%h4
+	Pytania testowe z działu RKO
+%br
+= form_tag(check_answers_path, :method => :get) do
+	#my{:style => "display:none"}
+		= number_field_tag("q1_id", @questions[0].id)
+		= number_field_tag("q2_id", @questions[1].id)
+		= number_field_tag("q3_id", @questions[2].id)
+		= number_field_tag("q4_id", @questions[3].id)
+		= number_field_tag("q5_id", @questions[4].id)
+
+
+
+	%br
+	#pyt1
+	%h4 
+		Pytanie 1
+		- q0 = @questions[0]
+		
+
+
+	%p
+		%h4
+			= q0.text
+			- wr_answer_array = [q0.answer1, q0.answer2, q0.answer3, q0.answer4]
+			- anserw_array = wr_answer_array.sample(3) <<q0.answerR
+			- anserw_array.shuffle!
+	%p
+		%h5
+			- (0..3).step(1)  do |l|
+				= radio_button_tag "q1", anserw_array[l]
+				= anserw_array[l]
+				%br
+	%br
+
+	#pyt2
+	%h4 
+		Pytanie 2
+		- q0 = @questions[1]
+		
+
+
+	%p
+		%h4
+			= q0.text
+			- wr_answer_array = [q0.answer1, q0.answer2, q0.answer3, q0.answer4]
+			- anserw_array = wr_answer_array.sample(3) <<q0.answerR
+			- anserw_array.shuffle!
+	%p
+		%h5
+			- (0..3).step(1)  do |l|
+				= radio_button_tag "q2", anserw_array[l]
+				= anserw_array[l]
+				%br
+	%br
+	#pyt3
+	%h4 
+		Pytanie 3
+		- q0 = @questions[2]
+		
+
+
+	%p
+		%h4
+			= q0.text
+			- wr_answer_array = [q0.answer1, q0.answer2, q0.answer3, q0.answer4]
+			- anserw_array = wr_answer_array.sample(3) <<q0.answerR
+			- anserw_array.shuffle!
+	%p
+		%h5
+			- (0..3).step(1)  do |l|
+				= radio_button_tag "q3", anserw_array[l]
+				= anserw_array[l]
+				%br
+	%br
+	#pyt4
+	%h4 
+		Pytanie 4
+		- q0 = @questions[3]
+		
+
+
+	%p
+		%h4
+			= q0.text
+			- wr_answer_array = [q0.answer1, q0.answer2, q0.answer3, q0.answer4]
+			- anserw_array = wr_answer_array.sample(3) <<q0.answerR
+			- anserw_array.shuffle!
+	%p
+		%h5
+			- (0..3).step(1)  do |l|
+				= radio_button_tag "q4", anserw_array[l]
+				= anserw_array[l]
+				%br
+	%br
+	#pyt5
+	%h4 
+		Pytanie 5
+		- q0 = @questions[4]
+		
+
+
+	%p
+		%h4
+			= q0.text
+			- wr_answer_array = [q0.answer1, q0.answer2, q0.answer3, q0.answer4]
+			- anserw_array = wr_answer_array.sample(3) <<q0.answerR
+			- anserw_array.shuffle!
+	%p
+		%h5
+			- (0..3).step(1)  do |l|
+				= radio_button_tag "q5", anserw_array[l]
+				= anserw_array[l]
+				%br
+		%br
+	= submit_tag 'Submit'
+

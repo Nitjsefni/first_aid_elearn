@@ -23,8 +23,9 @@
         %td Ukończony
       - else 
         %td Nieukończony
+      
       - if branch == 1 
-        %td= link_to 'Przejdź', branch_security_path
+        %td= link_to 'Przejdź', beg_branch_security_path
       - elsif @user_branches_access[branch-2]
         %td Przejdź
       - else  
