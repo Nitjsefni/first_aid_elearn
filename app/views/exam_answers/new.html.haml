@@ -1,0 +1,295 @@
+= form_for @exam_answer do |f|
+  - if @exam.errors.any?
+    #error_explanation
+      %h2= "#{pluralize(@exam.errors.count, "error")} prohibited this exam from being saved:"
+      %ul
+        - @exam.errors.full_messages.each do |msg|
+          %li= msg
+  %div{:align => "center"} 
+    %h1 
+      Egzamin na poziom
+      -if @exam.level == "Początkujący"
+        poczatkujący
+      -else
+        zaawansowany
+    %br
+  #my{:style => "display:none"}
+    = f.number_field :exam_id , :value => @exam.id
+  #pyt1
+    %h2 
+      Pytanie 1
+    - q0 = @exams_questions[0]
+    %p
+      %h5
+        %strong Dział:
+        = q0.branch
+
+    %p
+      %h3
+        = q0.text
+    - wr_answer_array = [q0.answer1, q0.answer2, q0.answer3, q0.answer4]
+    - anserw_array = wr_answer_array.sample(3) <<q0.answerR
+    - anserw_array.shuffle!
+    %p
+      %h4
+        = radio_button_tag :q1, (anserw_array[0] == q0.answerR ? true : false)
+        = anserw_array[0]
+        %br
+        
+        = radio_button_tag :q1, (anserw_array[1] == q0.answerR ? true : false)
+        = anserw_array[1]
+        %br
+        = radio_button_tag :q1, (anserw_array[2] == q0.answerR ? true : false)
+        = anserw_array[2]
+        %br
+        = radio_button_tag :q1, (anserw_array[3] == q0.answerR ? true : false)
+        = anserw_array[3]
+
+  %br
+  #pyt2
+    %h2 
+      Pytanie 2
+    - q0 = @exams_questions[1]
+    %p
+      %h5
+        %strong Dział:
+        = q0.branch
+
+    %p
+      %h3
+        = q0.text
+    - wr_answer_array = [q0.answer1, q0.answer2, q0.answer3, q0.answer4]
+    - anserw_array = wr_answer_array.sample(3) <<q0.answerR
+    - anserw_array.shuffle!
+    %p
+      %h4
+        = radio_button_tag :q2, (anserw_array[0] == q0.answerR ? true : false)
+        = anserw_array[0]
+        %br
+        
+        = radio_button_tag :q2, (anserw_array[1] == q0.answerR ? true : false)
+        = anserw_array[1]
+        %br
+        = radio_button_tag :q2, (anserw_array[2] == q0.answerR ? true : false)
+        = anserw_array[2]
+        %br
+        = radio_button_tag :q2, (anserw_array[3] == q0.answerR ? true : false)
+        = anserw_array[3]       
+  %br
+  #pyt3
+    %h2 
+      Pytanie 3
+    - q0 = @exams_questions[2]
+    %p
+      %h5
+        %strong Dział:
+        = q0.branch
+
+    %p
+      %h3
+        = q0.text
+    - wr_answer_array = [q0.answer1, q0.answer2, q0.answer3, q0.answer4]
+    - anserw_array = wr_answer_array.sample(3) <<q0.answerR
+    - anserw_array.shuffle!
+    %p
+      %h4
+        = radio_button_tag :q3, (anserw_array[0] == q0.answerR ? true : false)
+        = anserw_array[0]
+        %br
+        
+        = radio_button_tag :q3, (anserw_array[1] == q0.answerR ? true : false)
+        = anserw_array[1]
+        %br
+        = radio_button_tag :q3, (anserw_array[2] == q0.answerR ? true : false)
+        = anserw_array[2]
+        %br
+        = radio_button_tag :q3, (anserw_array[3] == q0.answerR ? true : false)
+        = anserw_array[3]       
+
+  %br
+  #pyt4
+    %h2 
+      Pytanie 4
+    - q0 = @exams_questions[3]
+    %p
+      %h5
+        %strong Dział:
+        = q0.branch
+
+    %p
+      %h3
+        = q0.text
+    - wr_answer_array = [q0.answer1, q0.answer2, q0.answer3, q0.answer4]
+    - anserw_array = wr_answer_array.sample(3) <<q0.answerR
+    - anserw_array.shuffle!
+    %p
+      %h4
+        = radio_button_tag :q4, (anserw_array[0] == q0.answerR ? true : false)
+        = anserw_array[0]
+        %br
+        
+        = radio_button_tag :q4, (anserw_array[1] == q0.answerR ? true : false)
+        = anserw_array[1]
+        %br
+        = radio_button_tag :q4, (anserw_array[2] == q0.answerR ? true : false)
+        = anserw_array[2]
+        %br
+        = radio_button_tag :q4, (anserw_array[3] == q0.answerR ? true : false)
+        = anserw_array[3]     
+  %br
+  #pyt5
+    %h2 
+      Pytanie 5
+    - q0 = @exams_questions[4]
+    %p
+      %h5
+        %strong Dział:
+        = q0.branch
+
+    %p
+      %h3
+        = q0.text
+    - wr_answer_array = [q0.answer1, q0.answer2, q0.answer3, q0.answer4]
+    - anserw_array = wr_answer_array.sample(3) <<q0.answerR
+    - anserw_array.shuffle!
+    %p
+      %h4
+        = radio_button_tag :q5, (anserw_array[0] == q0.answerR ?  true : false)
+        = anserw_array[0]
+        %br
+        
+        = radio_button_tag :q5,( anserw_array[1] == q0.answerR ? true : false)
+        = anserw_array[1]
+        %br
+        = radio_button_tag :q5, (anserw_array[2] == q0.answerR ? true : false)
+        = anserw_array[2]
+        %br
+        = radio_button_tag :q5, (anserw_array[3] == q0.answerR ? true : false)
+        = anserw_array[3]     
+  %br
+  #pyt6
+    %h2 
+      Pytanie 6
+    - q0 = @exams_questions[5]
+    %p
+      %h5
+        %strong Dział:
+        = q0.branch
+
+    %p
+      %h3
+        = q0.text
+    - wr_answer_array = [q0.answer1, q0.answer2, q0.answer3, q0.answer4]
+    - anserw_array = wr_answer_array.sample(3) <<q0.answerR
+    - anserw_array.shuffle!
+    %p
+      %h4
+        = radio_button_tag :q6, (anserw_array[0] == q0.answerR ? true : false)
+        = anserw_array[0]
+        %br
+        
+        = radio_button_tag :q6, (anserw_array[1] == q0.answerR ? true : false)
+        = anserw_array[1]
+        %br
+        = radio_button_tag :q6, (anserw_array[2] == q0.answerR ? true : false)
+        = anserw_array[2]
+        %br
+        = radio_button_tag :q6, (anserw_array[3] == q0.answerR ? true : false)
+        = anserw_array[3] 
+  %br
+  #pyt7
+    %h2 
+      Pytanie 7
+    - q0 = @exams_questions[6]
+    %p
+      %h5
+        %strong Dział:
+        = q0.branch
+
+    %p
+      %h3
+        = q0.text
+    - wr_answer_array = [q0.answer1, q0.answer2, q0.answer3, q0.answer4]
+    - anserw_array = wr_answer_array.sample(3) <<q0.answerR
+    - anserw_array.shuffle!
+    %p
+      %h4
+        = radio_button_tag :q7, (anserw_array[0] == q0.answerR ? true : false)
+        = anserw_array[0]
+        %br
+        
+        = radio_button_tag :q7, (anserw_array[1] == q0.answerR ? true : false)
+        = anserw_array[1]
+        %br
+        = radio_button_tag :q7, (anserw_array[2] == q0.answerR ? true : false)
+        = anserw_array[2]
+        %br
+        = radio_button_tag :q7, (anserw_array[3] == q0.answerR ? true : false)
+        = anserw_array[3]
+  %br
+  #pyt8
+    %h2 
+      Pytanie 8
+    - q0 = @exams_questions[7]
+    %p
+      %h5
+        %strong Dział:
+        = q0.branch
+
+    %p
+      %h3
+        = q0.text
+    - wr_answer_array = [q0.answer1, q0.answer2, q0.answer3, q0.answer4]
+    - anserw_array = wr_answer_array.sample(3) <<q0.answerR
+    - anserw_array.shuffle!
+    %p
+      %h4
+        - (0..3).step(1) do |l|
+          = radio_button_tag :q8, (anserw_array[l] == q0.answerR ? true : false)
+          = anserw_array[l]
+          %br
+  #pyt9
+    %h2 
+      Pytanie 9
+    - q0 = @exams_questions[8]
+    %p
+      %h5
+        %strong Dział:
+        = q0.branch
+
+    %p
+      %h3
+        = q0.text
+    - wr_answer_array = [q0.answer1, q0.answer2, q0.answer3, q0.answer4]
+    - anserw_array = wr_answer_array.sample(3) <<q0.answerR
+    - anserw_array.shuffle!
+    %p
+      %h4
+        - (0..3).step(1) do |l|
+          = radio_button_tag :q9, (anserw_array[l] == q0.answerR ? true : false)
+          = anserw_array[l]
+          %br
+  #pyt10
+    %h2 
+      Pytanie 10
+    - q0 = @exams_questions[9]
+    %p
+      %h5
+        %strong Dział:
+        = q0.branch
+
+    %p
+      %h3
+        = q0.text
+    - wr_answer_array = [q0.answer1, q0.answer2, q0.answer3, q0.answer4]
+    - anserw_array = wr_answer_array.sample(3) <<q0.answerR
+    - anserw_array.shuffle!
+    %p
+      %h4
+        - (0..3).step(1)  do |l|
+          = radio_button_tag :q10, (anserw_array[l] == q0.answerR ? true : false)
+          = anserw_array[l]
+          %br
+
+  .actions
+    = f.submit 'Zapisz'

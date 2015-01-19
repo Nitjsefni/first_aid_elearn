@@ -16,9 +16,9 @@
       %td= exam.level
       %td= exam.points
       -if @access_adv.zaawansowany && exam.level == "Zaawansowany"
-        %td= link_to 'Podejdź do egzaminu', take_exam_path(exam.id)
+        %td= link_to 'Podejdź do egzaminu', new_exam_answer_path(exam.id)
       - elsif @access_beg.poczatkujacy && exam.level == "Początkujący"
-        %td= link_to 'Podejdź do egzaminu', take_exam_path(exam.id)
+        %td= link_to 'Podejdź do egzaminu', new_exam_answer_path(exam.id)
       - else
         %td Ukończ najpierw do poziomu odpowiedni kurs!
 

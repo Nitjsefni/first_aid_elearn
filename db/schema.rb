@@ -11,7 +11,25 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150117103016) do
+ActiveRecord::Schema.define(version: 20150118222248) do
+
+  create_table "exam_answers", force: true do |t|
+    t.integer  "exam_id"
+    t.integer  "user_id"
+    t.boolean  "q1"
+    t.boolean  "q2"
+    t.boolean  "q3"
+    t.boolean  "q4"
+    t.boolean  "q5"
+    t.boolean  "q6"
+    t.boolean  "q7"
+    t.boolean  "q8"
+    t.boolean  "q9"
+    t.boolean  "q10"
+    t.integer  "rec_points"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
   create_table "exams", force: true do |t|
     t.string   "title"
@@ -47,30 +65,30 @@ ActiveRecord::Schema.define(version: 20150117103016) do
   end
 
   create_table "user_progresses", force: true do |t|
-    t.integer  "user_id"
-    t.boolean  "p1"
-    t.boolean  "p2"
-    t.boolean  "p3"
-    t.boolean  "p4"
-    t.boolean  "p5"
-    t.boolean  "p6"
-    t.boolean  "p7"
-    t.boolean  "p8"
-    t.boolean  "p9"
-    t.boolean  "p10"
-    t.boolean  "poczatkujacy"
-    t.boolean  "z1"
-    t.boolean  "z2"
-    t.boolean  "z3"
-    t.boolean  "z4"
-    t.boolean  "z5"
-    t.boolean  "z6"
-    t.boolean  "z7"
-    t.boolean  "z8"
-    t.boolean  "z9"
-    t.boolean  "z10"
-    t.boolean  "zaawansowany"
-    t.datetime "created_at"
+    t.integer  "user_id",                      null: false
+    t.boolean  "p1",           default: false, null: false
+    t.boolean  "p2",           default: false, null: false
+    t.boolean  "p3",           default: false, null: false
+    t.boolean  "p4",           default: false, null: false
+    t.boolean  "p5",           default: false, null: false
+    t.boolean  "p6",           default: false, null: false
+    t.boolean  "p7",           default: false, null: false
+    t.boolean  "p8",           default: false, null: false
+    t.boolean  "p9",           default: false, null: false
+    t.boolean  "p10",          default: false, null: false
+    t.boolean  "poczatkujacy", default: false, null: false
+    t.boolean  "z1",           default: false, null: false
+    t.boolean  "z2",           default: false, null: false
+    t.boolean  "z3",           default: false, null: false
+    t.boolean  "z4",           default: false, null: false
+    t.boolean  "z5",           default: false, null: false
+    t.boolean  "z6",           default: false, null: false
+    t.boolean  "z7",           default: false, null: false
+    t.boolean  "z8",           default: false, null: false
+    t.boolean  "z9",           default: false, null: false
+    t.boolean  "z10",          default: false, null: false
+    t.boolean  "zaawansowany", default: false, null: false
+    t.datetime "created_at",                   null: false
     t.datetime "updated_at"
   end
 

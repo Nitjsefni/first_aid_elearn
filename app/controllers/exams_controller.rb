@@ -8,9 +8,7 @@ class ExamsController < ApplicationController
 def auth_admin
     redirect_to root_path unless current_user && current_user.admin?
 end
-def check_points
-    
-end
+
   # GET /exams
   # GET /exams.json
   def index
@@ -19,12 +17,7 @@ end
 
   end
 
-  def take_exam
-      @exam = Exam.find(params[:id])
 
-      @questions = Questions.where(level: @exam.level)
-      @exams_questions = @questions.where(id: [@exam.question1, @exam.question2, @exam.question3, @exam.question4, @exam.question5, @exam.question6, @exam.question7, @exam.question8, @exam.question9, @exam.question10])
-  end
   def exam_list
     @exams = Exam.all.order("level ASC")
     @access_beg = UserProgress.select(:poczatkujacy).where("user_id = ?", current_user.id).take

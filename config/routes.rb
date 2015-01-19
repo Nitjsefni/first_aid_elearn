@@ -3,12 +3,14 @@ Rails.application.routes.draw do
 
 
   resources :exams
-
+  resources :exam_answers, :except => [ 'index','edit', 'update', 'destroy', 'new']
+  get 'exam_answers/new/:exam_id' => 'exam_answers#new', :as => 'new_exam_answer'
   resources :questions do
     collection { post :import }
   end
-  get '/exams_test/:id', to: 'exams#take_exam', as: :take_exam
+  get '/exams_test/:exam_id', to: 'exams#take_exam', as: :take_exam
   get '/exams_list', to: 'exams#exam_list', as: :exam_list
+
   root to: "course#index"
 
    devise_for :users, :controllers => { :registrations => "registrations" }
