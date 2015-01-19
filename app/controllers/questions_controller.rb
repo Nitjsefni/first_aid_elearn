@@ -4,6 +4,7 @@ class QuestionsController < ApplicationController
   before_action :set_question, only: [:show, :edit, :update, :destroy]
 
   def auth_instructor
+    flash[:notice] = 'Nie masz dostępu do działów instruktora.'
       redirect_to root_path unless current_user && current_user.instructor?
   end
   # GET /questions

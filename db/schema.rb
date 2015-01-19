@@ -11,24 +11,34 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150118222248) do
+ActiveRecord::Schema.define(version: 20150119101627) do
 
   create_table "exam_answers", force: true do |t|
-    t.integer  "exam_id"
-    t.integer  "user_id"
-    t.boolean  "q1"
-    t.boolean  "q2"
-    t.boolean  "q3"
-    t.boolean  "q4"
-    t.boolean  "q5"
-    t.boolean  "q6"
-    t.boolean  "q7"
-    t.boolean  "q8"
-    t.boolean  "q9"
-    t.boolean  "q10"
-    t.integer  "rec_points"
-    t.datetime "created_at"
-    t.datetime "updated_at"
+    t.integer  "exam_id",    null: false
+    t.integer  "user_id",    null: false
+    t.boolean  "q1",         null: false
+    t.boolean  "q2",         null: false
+    t.boolean  "q3",         null: false
+    t.boolean  "q4",         null: false
+    t.boolean  "q5",         null: false
+    t.boolean  "q6",         null: false
+    t.boolean  "q7",         null: false
+    t.boolean  "q8",         null: false
+    t.boolean  "q9",         null: false
+    t.boolean  "q10",        null: false
+    t.integer  "rec_points", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.text     "ans1",       null: false
+    t.text     "ans2",       null: false
+    t.text     "ans3",       null: false
+    t.text     "ans4",       null: false
+    t.text     "ans5",       null: false
+    t.text     "ans6",       null: false
+    t.text     "ans7",       null: false
+    t.text     "ans8",       null: false
+    t.text     "ans9",       null: false
+    t.text     "ans10",      null: false
   end
 
   create_table "exams", force: true do |t|
@@ -90,6 +100,7 @@ ActiveRecord::Schema.define(version: 20150118222248) do
     t.boolean  "zaawansowany", default: false, null: false
     t.datetime "created_at",                   null: false
     t.datetime "updated_at"
+    t.boolean  "complete_all"
   end
 
   create_table "users", force: true do |t|

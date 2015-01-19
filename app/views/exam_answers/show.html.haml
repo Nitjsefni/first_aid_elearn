@@ -1,0 +1,142 @@
+%h3 
+  Wyniki egzaminu nr
+  = @exam.id
+  użytkownika 
+  = @user.name
+%p
+  %b Egzamin:
+  = @exam.title
+%p
+  %b Opis:
+  = @exam.text
+%p
+  %b Poziom:
+  = @exam.level
+%p
+  %b 
+    Ilość uzyskanych punktów:
+    = @exam_answer.rec_points
+%p
+  %b Odpowiedz na pytanie 1:
+  %br
+  - if @exam_answer.q1 == true
+    %span.bg-success
+      Poprawna odpowiedź - 
+      = @exam_answer.ans1
+  - else
+    %span.bg-danger
+      Błędna odpowiedź -
+      = @exam_answer.ans1
+
+%p
+  %b Odpowiedz na pytanie 2:
+  %br
+  - if @exam_answer.q2 == true
+    %span.bg-success
+      Poprawna odpowiedź - 
+      = @exam_answer.ans2
+  - else
+    %span.bg-danger
+      Błędna odpowiedź -
+      = @exam_answer.ans2
+  %br
+%p
+  %b Odpowiedz na pytanie 3:
+  %br
+  - if @exam_answer.q3 == true
+    %span.bg-success
+      Poprawna odpowiedź - 
+      = @exam_answer.ans3
+  - else
+    %span.bg-danger
+      Błędna odpowiedź -
+      = @exam_answer.ans1
+  %br
+%p
+  %b Odpowiedz na pytanie 4:
+  %br
+  - if @exam_answer.q4 == true
+    %span.bg-success
+      Poprawna odpowiedź - 
+      = @exam_answer.ans4
+  - else
+    %span.bg-danger
+      Błędna odpowiedź -
+      = @exam_answer.ans4
+  %br
+%p
+  %b Odpowiedz na pytanie 5:
+  %br
+  - if @exam_answer.q5 == true
+    %span.bg-success
+      Poprawna odpowiedź - 
+      = @exam_answer.ans5
+  - else
+    %span.bg-danger
+      Błędna odpowiedź -
+      = @exam_answer.ans5
+  %br
+%p
+  %b Odpowiedz na pytanie 6:
+  %br
+  - if @exam_answer.q6 == true
+    %span.bg-success
+      Poprawna odpowiedź - 
+      = @exam_answer.ans6
+  - else
+    %span.bg-danger
+      Błędna odpowiedź -
+      = @exam_answer.ans6
+  %br
+%p
+  %b Odpowiedz na pytanie 7:
+  %br
+  - if @exam_answer.q7 == true
+    %span.bg-success
+      Poprawna odpowiedź - 
+      = @exam_answer.ans7
+  - else
+    %span.bg-danger
+      Błędna odpowiedź -
+      = @exam_answer.ans7
+  %br
+%p
+  %b Odpowiedz na pytanie 8:
+  %br
+  - if @exam_answer.q8 == true
+    %span.bg-success
+      Poprawna odpowiedź - 
+      = @exam_answer.ans8
+  - else
+    %span.bg-danger
+      Błędna odpowiedź -
+      = @exam_answer.ans8
+  %br
+%p
+  %b Odpowiedz na pytanie 9:
+  %br
+  - if @exam_answer.q9 == true
+    %span.bg-success
+      Poprawna odpowiedź - 
+      = @exam_answer.ans9
+  - else
+    %span.bg-danger
+      Błędna odpowiedź -
+      = @exam_answer.ans9
+  %br
+%p
+  %b Odpowiedz na pytanie 10:
+  %br
+  - if @exam_answer.q10 == true
+    %span.bg-success
+      Poprawna odpowiedź - 
+      = @exam_answer.ans10
+  - else
+    %span.bg-danger
+      Błędna odpowiedź -
+      = @exam_answer.ans10
+  %br
+
+
+
+= link_to 'Wróć', exam_list_path

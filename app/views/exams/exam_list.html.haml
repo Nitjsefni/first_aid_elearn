@@ -15,12 +15,16 @@
       %td= exam.text
       %td= exam.level
       %td= exam.points
-      -if @access_adv.zaawansowany && exam.level == "Zaawansowany"
-        %td= link_to 'Podejdź do egzaminu', new_exam_answer_path(exam.id)
-      - elsif @access_beg.poczatkujacy && exam.level == "Początkujący"
-        %td= link_to 'Podejdź do egzaminu', new_exam_answer_path(exam.id)
-      - else
-        %td Ukończ najpierw do poziomu odpowiedni kurs!
+      -if exam.id != @exam_answer.try(:exam_id)
+
+        -if @access_adv.zaawansowany && exam.level == "Zaawansowany" 
+          %td= link_to 'Podejdź do egzaminu', new_exam_answer_path(exam.id)
+        - elsif @access_beg.poczatkujacy && exam.level == "Początkujący" 
+          %td= link_to 'Podejdź do egzaminu', new_exam_answer_path(exam.id)
+        - else
+          %td Ukończ najpierw do poziomu odpowiedni kurs!
+      -else
+        %td Już ukończyłeś ten egzamin
 
 
 

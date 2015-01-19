@@ -12,6 +12,8 @@ Rails.application.routes.draw do
   get '/exams_list', to: 'exams#exam_list', as: :exam_list
 
   root to: "course#index"
+  get '/course_beg', to: 'course#beg_index', as:  :beg_course_index
+  get '/course_adv', to: 'course#adv_index', as:  :adv_course_index
 
    devise_for :users, :controllers => { :registrations => "registrations" }
   # The priority is based upon order of creation: first created -> highest priority.

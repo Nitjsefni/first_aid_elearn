@@ -6,6 +6,8 @@ class ExamsController < ApplicationController
   before_action :set_exam, only: [:show, :edit, :update, :destroy]
 
 def auth_admin
+    flash[:notice] = 'Nie masz dostępu do działów administratora.'
+      
     redirect_to root_path unless current_user && current_user.admin?
 end
 
@@ -20,6 +22,7 @@ end
 
   def exam_list
     @exams = Exam.all.order("level ASC")
+    @exam_answer = ExamAnswer.select("exam_id").where(user_id: current_user.id).take
     @access_beg = UserProgress.select(:poczatkujacy).where("user_id = ?", current_user.id).take
     @access_adv = UserProgress.select(:zaawansowany).where("user_id = ?", current_user.id).take
     
