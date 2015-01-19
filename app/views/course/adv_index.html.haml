@@ -1,0 +1,51 @@
+%h1 Kurs zaawansowany
+%h4
+  W tym kursie zaznajomisz się z bardziej zaawansowanymi tematami z zakresu pierwszej pomocy.
+  %br
+  Po przerobieniu bieżącego działu oraz odpowiedzeniu prawidłowo na pytania zwiazane z danym działem, możesz przejść do następnego działu.
+  %br
+  Po ukończeniu wszystkich działów odblokowana zostanie mozliwość przeegzaminowania swojej wiedzy z danego poziomu.
+  %br
+  Jeżeli niektóre zagadnienia sprawiają Ci kłopoty, spróbuj powtórzyć swoją wiedzę z podstawowego zakresu robiąc egzaminu z poziomu początkującego.
+%br
+%br
+%table.table
+  %tr
+    %th Tytuł działu
+    %th Czy ukończony?
+    %th Przejdź do działu
+    %th
+    %th
+    %th
+
+  - (1..10).step(1) do |branch|
+    %tr
+      %td= @branch[branch-1]
+      - if @user_branches_access[branch-1]
+        %td Ukończony
+      - else 
+        %td Nieukończony
+      - if branch == 1 
+        %td Przejdź
+      - elsif @user_branches_access[branch-2]
+        %td Przejdź
+      - else  
+        %td Ukończ poprzedni dział
+
+
+%br
+
+-if @user_progress_all.try(:p10?)
+  - if @user_progress_all.try(:poczatkujacy?)
+    %h4
+      Ukończyłeś kurs i zdałeś egzamin, gratulacje! 
+      %br
+      To wszystko co mamy dla Ciebie, teraz możesz jeszcze podejść do innych egzaminów z poziomu zaawansowanego i powtarzać swoją wiedzę 
+      = link_to 'tu', exam_list_path 
+  - else
+    %h4
+      Ukończyłeś wszystkie działy w kursie zaawansowanym! Gratulacje! 
+      %br
+      Teraz możesz podejść do egzaminu z poziomu zaawansowanego.
+      %br
+      = link_to 'Przejdź do egzaminu', new_exam_answer_path(@exam.id), :class=>"btn btn-success"

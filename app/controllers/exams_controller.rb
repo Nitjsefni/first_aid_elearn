@@ -2,13 +2,16 @@ class ExamsController < ApplicationController
   before_filter :authenticate_user!
   before_filter :auth_admin 
  
-  skip_before_filter :auth_admin, :only => [:take_exam, :exam_list]
+  skip_before_filter :auth_admin, :only => [:take_exam, :exam_list, :users_ranking]
+  skip_before_filter :authenticate_user!, :only => [:users_ranking]
   before_action :set_exam, only: [:show, :edit, :update, :destroy]
 
 def auth_admin
+  unless current_user && current_user.admin?
     flash[:notice] = 'Nie masz dostępu do działów administratora.'
       
-    redirect_to root_path unless current_user && current_user.admin?
+    redirect_to root_path 
+  end
 end
 
   # GET /exams
@@ -43,6 +46,12 @@ end
 
   # GET /exams/1/edit
   def edit
+  end
+
+  def users_ranking
+    @users = User.all.select("id", "name" , "points").order("points DESC")
+    @users_progress = UserProgress.select("poczatkujacy", "zaawansowany", "complete_all")
+
   end
 
   # POST /exams

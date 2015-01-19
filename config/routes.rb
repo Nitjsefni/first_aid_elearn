@@ -10,11 +10,14 @@ Rails.application.routes.draw do
   end
   get '/exams_test/:exam_id', to: 'exams#take_exam', as: :take_exam
   get '/exams_list', to: 'exams#exam_list', as: :exam_list
+  get '/users_ranking', to: 'exams#users_ranking', as:  :users_ranking
 
   root to: "course#index"
   get '/course_beg', to: 'course#beg_index', as:  :beg_course_index
   get '/course_adv', to: 'course#adv_index', as:  :adv_course_index
 
+  get '/course_beg/branch_security', to: 'course#branch_security', as:  :branch_security
+  get '/course/check_answers' => 'course#check_answers', :as => :check_answers
    devise_for :users, :controllers => { :registrations => "registrations" }
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".

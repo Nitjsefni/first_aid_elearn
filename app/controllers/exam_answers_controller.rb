@@ -77,9 +77,10 @@ def create
 	if @exam_answer.rec_points >= @min
 		@user_progress = UserProgress.find_by user_id: current_user.id
 		if @exam.level == "Początkujący" && @user_progress.poczatkujacy?
-			@user_progress.update(z1: true)
+			@user_progress.update(poczatkujacy: true)
 		elsif @exam.level == "Zaawansowany" && @user_progress.zaawansowany?
 			@user_progress.update(complete_all: true)
+			@user_progress.update(zaawansowany: true)
 		end
 		current_user.increment!(:points, points2)
 		respond_to do |format|

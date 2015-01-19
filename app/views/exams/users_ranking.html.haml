@@ -1,0 +1,25 @@
+%h1 Ranking użytkowników
+
+%table.table
+  %tr
+    %th Nazwa
+    %th Ranga
+    %th Ilość punktów
+
+
+  - @users.each do |user|
+    %tr
+      %td= user.name
+      - ranga = @users_progress.where(user_id: user.id).take
+      - if ranga.poczatkujacy && !ranga.zaawansowany
+        %td Poczatkujacy
+      - elsif ranga.zaawansowany && !ranga.complete_all
+        %td Zaawansowany
+      - elsif ranga.complete_all
+        %td Ekspert
+      - else
+        %td Nowy
+      %td= user.points
+
+
+%br

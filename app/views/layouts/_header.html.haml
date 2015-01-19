@@ -7,17 +7,18 @@
   
   %ul.nav.navbar-nav
     - if user_signed_in?
-
+      - @user_progress = UserProgress.where(user_id: current_user.id).take
       %li.dropdown
         %a.dropdown-toggle{"data-toggle" => "dropdown", "role" => "button", "data-target" => "#", :href => "#"}
           Kursy
           %b.caret
         %ul.dropdown-menu{"role" => "menu"}
-          %li Kurs podstawowy
-          %li Kurs zaawansowany
-
-      %li
-        %li= link_to 'Podejdź do egzaminu ', exam_list_path
+          %li= link_to 'Kurs podstawowy', beg_course_index_path
+          - if @user_progress.try(:poczatkujacy?)
+            %li= link_to 'Kurs zaawansowany', adv_course_index_path
+      - if @user_progress.try(:p10?)
+        %li
+          %li= link_to 'Podejdź do egzaminu ', exam_list_path
       - if current_user.try(:instructor?)
         %li
           %li= link_to 'Nowe pytanie', new_question_path
@@ -37,7 +38,7 @@
     
 
       
-      
+    %li= link_to 'Ranking graczy', users_ranking_path
     
 
     - if user_signed_in?
