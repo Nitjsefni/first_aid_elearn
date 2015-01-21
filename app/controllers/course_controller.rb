@@ -67,7 +67,7 @@ end
 		render "course/course_beg/branch_6_hypothermia_hyperthermia"
 	end
 
-	def beg_branch_security
+	def beg_branch_mech_injury
 		@questions = Question.order("RAND()").where(level: "Poczatkujacy", branch: "Urazy mechaniczne").limit(5)
 
 		render "course/course_beg/branch_7_mech_injury"
@@ -185,52 +185,153 @@ end
 		if q1 && q2 && q3 && q4 && q5 
 			if @current_question.level == "Początkujący"
 				if @current_question.branch == "Bezpieczeństwo"
-					@user_progress.update(p1: true)
+					if @user_progress.p1
+						current_user.increment!(:points, 2)
+					else
+						current_user.increment!(:points, 10)
+						@user_progress.update(p1: true)
+					end
 				elsif @current_question.branch == "ABC, Wywiad środowiskowy"
-					@user_progress.update(p2: true)
+					if @user_progress.p2
+						current_user.increment!(:points, 2)
+					else
+						current_user.increment!(:points, 10)
+						@user_progress.update(p2: true)
+					end
 				elsif @current_question.branch == "Krwotoki"
-					@user_progress.update(p3: true)
+					if @user_progress.p3
+						current_user.increment!(:points, 2)
+					else
+						current_user.increment!(:points, 10)
+						@user_progress.update(p3: true)
+					end
 				elsif @current_question.branch == "Omdlenia i utraty przytomności"
-					@user_progress.update(p4: true)
+					if @user_progress.p4
+						current_user.increment!(:points, 2)
+					else
+						current_user.increment!(:points, 10)
+						@user_progress.update(p4: true)
+					end
 				elsif @current_question.branch == "Oparzenia, odmrożenia"
-					@user_progress.update(p5: true)
+					if @user_progress.p5
+						current_user.increment!(:points, 2)
+					else
+						current_user.increment!(:points, 10)
+						@user_progress.update(p5: true)
+					end
 				elsif @current_question.branch == "Hipotermia, hipertermia"
-					@user_progress.update(p6: true)
+					if @user_progress.p6
+						current_user.increment!(:points, 2)
+					else
+						current_user.increment!(:points, 10)
+						@user_progress.update(p6: true)
+					end
 				elsif @current_question.branch == "Urazy mechaniczne"
-					@user_progress.update(p7: true)
+					if @user_progress.p7
+						current_user.increment!(:points, 2)
+					else
+						current_user.increment!(:points, 10)
+						@user_progress.update(p7: true)
+					end
 				elsif @current_question.branch == "Epilepsja"
-					@user_progress.update(p8: true)
+					if @user_progress.p8
+						current_user.increment!(:points, 2)
+					else
+						current_user.increment!(:points, 10)
+						@user_progress.update(p8: true)
+					end
+
 				elsif @current_question.branch == "Zadławienia"
-					@user_progress.update(p9: true)
+					if @user_progress.p9
+						current_user.increment!(:points, 2)
+					else
+						current_user.increment!(:points, 10)
+						@user_progress.update(p9: true)
+					end
 				elsif @current_question.branch == "RKO"
-					@user_progress.update(p10: true)
+					if @user_progress.p10
+						current_user.increment!(:points, 2)
+					else
+						current_user.increment!(:points, 10)
+						@user_progress.update(p20: true)
+					end
 				end
-				current_user.increment!(:points, 5)
+				
 				redirect_to beg_course_index_path, :notice => "Brawo, zdałeś pytania z działu #{@current_question.branch}"
 			
 			elsif @current_question.level == "Zaawansowany"
 				if @current_question.branch == "Zawały"
-					@user_progress.update(z1: true)
+					if @user_progress.z1
+						current_user.increment!(:points, 5)
+					else
+						current_user.increment!(:points, 20)
+						@user_progress.update(z1: true)
+					end
 				elsif @current_question.branch == "Zatrucia"
-					@user_progress.update(z2: true)
+					if @user_progress.z2
+						current_user.increment!(:points, 5)
+					else
+						current_user.increment!(:points, 20)
+						@user_progress.update(z2: true)
+					end
 				elsif @current_question.branch == "Ciało obce w ciele"
-					@user_progress.update(z3: true)
+					if @user_progress.z3
+						current_user.increment!(:points, 5)
+					else
+						current_user.increment!(:points, 20)
+						@user_progress.update(z3: true)
+					end
 				elsif @current_question.branch == "AED"
-					@user_progress.update(z4: true)
+					if @user_progress.z4
+						current_user.increment!(:points, 5)
+					else
+						current_user.increment!(:points, 20)
+						@user_progress.update(z4: true)
+					end
 				elsif @current_question.branch == "Porażenia prądem"
-					@user_progress.update(z5: true)
+					if @user_progress.z5
+						current_user.increment!(:points, 5)
+					else
+						current_user.increment!(:points, 20)
+						@user_progress.update(z5: true)
+					end
 				elsif @current_question.branch == "Ciśnienie i tętno"
-					@user_progress.update(z6: true)
+					if @user_progress.z6
+						current_user.increment!(:points, 5)
+					else
+						current_user.increment!(:points, 20)
+						@user_progress.update(z6: true)
+					end
 				elsif @current_question.branch == "Udary"
-					@user_progress.update(z7: true)
+					if @user_progress.z7
+						current_user.increment!(:points, 5)
+					else
+						current_user.increment!(:points, 20)
+						@user_progress.update(z7: true)
+					end
 				elsif @current_question.branch == "Cukrzyca"
-					@user_progress.update(z8: true)
+					if @user_progress.z8
+						current_user.increment!(:points, 5)
+					else
+						current_user.increment!(:points, 20)
+						@user_progress.update(z8: true)
+					end
 				elsif @current_question.branch == "Odma płucna"
-					@user_progress.update(z9: true)
+					if @user_progress.z9
+						current_user.increment!(:points, 5)
+					else
+						current_user.increment!(:points, 20)
+						@user_progress.update(z9: true)
+					end
 				elsif @current_question.branch == "Wstrząsy"
-					@user_progress.update(z10: true)
+					if @user_progress.z10
+						current_user.increment!(:points, 5)
+					else
+						current_user.increment!(:points, 20)
+						@user_progress.update(z10: true)
+					end
 				end
-				current_user.increment!(:points, 10)
+
 				redirect_to adv_course_index_path, :notice => "Brawo, zdałeś wszystkie pytania z działu #{@current_question.branch}"
 			end
 		else

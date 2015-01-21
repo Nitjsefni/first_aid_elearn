@@ -25,10 +25,30 @@
         %td Ukończony
       - else 
         %td Nieukończony
+        
       - if branch == 1 
-        %td Przejdź
+        %td= link_to 'Przejdź', adv_branch_heart_attack_path
+
       - elsif @user_branches_access[branch-2]
-        %td Przejdź
+        - if @branch[branch-1] == "Zatrucia"
+          %td= link_to 'Przejdź', adv_branch_poisoning_path
+        - elsif @branch[branch-1] == "Ciało obce w ciele"
+          %td= link_to 'Przejdź', adv_branch_foreign_body_path
+        - elsif @branch[branch-1] == "AED"
+          %td= link_to 'Przejdź', adv_branch_AED_path
+        - elsif @branch[branch-1] == "Porażenia prądem"
+          %td= link_to 'Przejdź', adv_branch_electrocution_path
+        - elsif @branch[branch-1] == "Ciśnienie i tętno"
+          %td= link_to 'Przejdź', adv_branch_blood_pressure_pulse_path
+        - elsif @branch[branch-1] == "Udary"
+          %td= link_to 'Przejdź', adv_branch_stroke_path
+        - elsif @branch[branch-1] == "Cukrzyca"
+          %td= link_to 'Przejdź', adv_branch_diabetes_path
+        - elsif @branch[branch-1] == "Odma płucna"
+          %td= link_to 'Przejdź', adv_branch_pneumothorax_path
+        - elsif @branch[branch-1] == "Wstrząsy"
+          %td= link_to 'Przejdź', adv_branch_shock_path
+        
       - else  
         %td Ukończ poprzedni dział
 

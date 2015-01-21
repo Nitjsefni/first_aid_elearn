@@ -17,14 +17,14 @@ end
   # GET /exams
   # GET /exams.json
   def index
-    @exams = Exam.all.order("level ASC")
+    @exams = Exam.all.order("level ASC").order("points DESC").pageKN(params[:page]).per(10)
     @question_text = Question.select("text")
 
   end
 
 
   def exam_list
-    @exams = Exam.all.order("level ASC")
+    @exams = Exam.all.order("level ASC").order("points DESC").pageKN(params[:page]).per(10)
     @exam_answer = ExamAnswer.select("exam_id").where(user_id: current_user.id).take
     @access_beg = UserProgress.select(:poczatkujacy).where("user_id = ?", current_user.id).take
     @access_adv = UserProgress.select(:zaawansowany).where("user_id = ?", current_user.id).take

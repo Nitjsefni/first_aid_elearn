@@ -27,7 +27,24 @@
       - if branch == 1 
         %td= link_to 'Przejdź', beg_branch_security_path
       - elsif @user_branches_access[branch-2]
-        %td Przejdź
+        - if @branch[branch-1] == "ABC, Wywiad środowiskowy"
+          %td= link_to 'Przejdź', beg_branch_abc_sample_path
+        - elsif @branch[branch-1] == "Krwotoki"
+          %td= link_to 'Przejdź', beg_branch_bleeding_path
+        - elsif @branch[branch-1] == "Omdlenia i utraty przytomności"
+          %td= link_to 'Przejdź', beg_branch_consciousness_path
+        - elsif @branch[branch-1] == "Oparzenia, odmrożenia"
+          %td= link_to 'Przejdź', beg_branch_scald_frostbite_path
+        - elsif @branch[branch-1] == "Hipotermia, hipertermia"
+          %td= link_to 'Przejdź', beg_branch_hypothermia_hyperthermia_path
+        - elsif @branch[branch-1] == "Urazy mechaniczne"
+          %td= link_to 'Przejdź', beg_branch_mech_injury_path
+        - elsif @branch[branch-1] == "Epilepsja"
+          %td= link_to 'Przejdź', beg_branch_epilepsy_path
+        - elsif @branch[branch-1] == "Zadławienia"
+          %td= link_to 'Przejdź', beg_branch_choking_path
+        - elsif @branch[branch-1] == "RKO"
+          %td= link_to 'Przejdź', beg_branch_CPR_path
       - else  
         %td Ukończ poprzedni dział
 

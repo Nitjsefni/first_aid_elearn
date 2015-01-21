@@ -1,17 +1,19 @@
 %h3 
   Wyniki egzaminu nr
-  = @exam.id
+  = @exam_id
   użytkownika 
   = @user.name
 %p
   %b Egzamin:
-  = @exam.title
+  = @exam_title
 %p
   %b Opis:
-  = @exam.text
-%p
-  %b Poziom:
-  = @exam.level
+  = @exam_text
+-unless @exam_id == 999
+  %p
+    %b Poziom:
+    = @exam_level
+%br
 %p
   %b 
     Ilość uzyskanych punktów:

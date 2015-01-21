@@ -41,5 +41,7 @@
       %td= link_to 'Usuń', exam, :method => :delete, :data => { :confirm => 'Czy na pewno?' }
 
 %br
-
+%div{:align => "center"}
+  = paginate @exams 
+%br
 = link_to 'Nowy egzamin', new_exam_path

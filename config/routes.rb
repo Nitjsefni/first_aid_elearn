@@ -3,15 +3,18 @@ Rails.application.routes.draw do
 
 
   resources :exams
+  get '/exams_test/:exam_id', to: 'exams#take_exam', as: :take_exam
+  get '/exams_list', to: 'exams#exam_list', as: :exam_list
+
   resources :exam_answers, :except => [ 'index','edit', 'update', 'destroy', 'new']
   get 'exam_answers/new/:exam_id' => 'exam_answers#new', :as => 'new_exam_answer'
+  get 'exam_answers/new_random/new' => 'exam_answers#new_random_exam', as: :new_random_exam
+
   resources :questions do
     collection { post :import }
   end
-  get '/exams_test/:exam_id', to: 'exams#take_exam', as: :take_exam
-  get '/exams_list', to: 'exams#exam_list', as: :exam_list
-  get '/users_ranking', to: 'exams#users_ranking', as:  :users_ranking
-
+  
+  
   root to: "course#index"
   get '/course_beg', to: 'course#beg_index', as:  :beg_course_index
   get '/course_adv', to: 'course#adv_index', as:  :adv_course_index
@@ -24,7 +27,7 @@ Rails.application.routes.draw do
   get '/course_beg/branch_hypothermia_hyperthermia', to: 'course#beg_branch_hypothermia_hyperthermia',as:  :beg_branch_hypothermia_hyperthermia
   get '/course_beg/branch_mech_injury',              to: 'course#beg_branch_mech_injury',             as:  :beg_branch_mech_injury
   get '/course_beg/branch_epilepsy',                 to: 'course#beg_branch_epilepsy',                as:  :beg_branch_epilepsy
-  get '/course_beg/branch_chocking',                 to: 'course#beg_branch_chocking',                as:  :beg_branch_chocking
+  get '/course_beg/branch_choking',                  to: 'course#beg_branch_choking',                 as:  :beg_branch_choking
   get '/course_beg/branch_CPR',                      to: 'course#beg_branch_CPR',                     as:  :beg_branch_CPR
   
   get '/course_adv/branch_heart_attack',        to: 'course#adv_branch_heart_attack',         as:  :adv_branch_heart_attack
@@ -41,6 +44,8 @@ Rails.application.routes.draw do
   get '/course/check_answers' => 'course#check_answers', :as => :check_answers
 
   devise_for :users, :controllers => { :registrations => "registrations" }
+  get '/users_ranking', to: 'exams#users_ranking', as:  :users_ranking
+
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 

@@ -1,5 +1,12 @@
 %h1 Lista egzaminów
+%br
 
+%h5
+  Wygeneruj egzamin z losowymi pytaniami z poziomu
+  = form_tag(new_random_exam_path, :method => :get)
+  = select_tag :exam_level, options_for_select(['Początkujący', 'Zaawansowany']), prompt: 'Wybierz poziom'
+  %td= submit_tag 'Wygeneruj' 
+%br
 %table.table
   %tr
     %th Tytuł
@@ -7,6 +14,7 @@
     %th Poziom
     %th Ilość punktów
     %th Podejdź do egzaminu
+
 
 
   - @exams.each do |exam|
@@ -26,6 +34,8 @@
       -else
         %td Już ukończyłeś ten egzamin
 
-
+%br
+%div{:align => "center"}
+  = paginate @exams 
 
 %br

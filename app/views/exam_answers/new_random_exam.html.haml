@@ -1,20 +1,32 @@
 = form_for @exam_answer do |f|
   - if @exam_answer.errors.any?
     #error_explanation
-      %h2= "#{pluralize(@exam_answer.errors.count, "error")} prohibited this exams answers from being saved:"
+      %h2= "#{pluralize(@exam_answer.errors.count, "error")} prohibited this exam answers from being saved:"
       %ul
         - @exam_answer.errors.full_messages.each do |msg|
           %li= msg
   %div{:align => "center"} 
     %h1 
       Egzamin na poziom
-      -if @exam.level == "Początkujący"
+      -if @exam_level == "Początkujący"
         poczatkujący
       -else
         zaawansowany
     %br
   #my{:style => "display:none"}
-    = f.number_field :exam_id , :value => @exam.id
+    = f.number_field :exam_id , :value => @exam_random_id
+    = hidden_field_tag :q1_id , @exams_questions[0].id
+    = hidden_field_tag :q2_id , @exams_questions[1].id
+    = hidden_field_tag :q3_id , @exams_questions[2].id
+    = hidden_field_tag :q4_id , @exams_questions[3].id
+    = hidden_field_tag :q5_id , @exams_questions[4].id
+    = hidden_field_tag :q6_id , @exams_questions[5].id
+    = hidden_field_tag :q7_id , @exams_questions[6].id
+    = hidden_field_tag :q8_id , @exams_questions[7].id
+    = hidden_field_tag :q9_id , @exams_questions[8].id
+    = hidden_field_tag :q10_id , @exams_questions[9].id
+    = hidden_field_tag :exam_lv , @exam_level
+
   #pyt1
     %h2 
       Pytanie 1
