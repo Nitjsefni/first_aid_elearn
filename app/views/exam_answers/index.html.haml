@@ -1,0 +1,144 @@
+%h1 Lista zdawań egzaminów
+
+%table.table
+  %tr
+    %th Użytkownik
+    %th Egzamin
+    %th Opis
+    %th Poziom
+    %th Ilość uzyskanych punktów
+    %th Odpowiedź na pytanie 1
+    %th Odpowiedź na pytanie 2
+    %th Odpowiedź na pytanie 3
+    %th Odpowiedź na pytanie 4
+    %th Odpowiedź na pytanie 5
+    %th Odpowiedź na pytanie 6
+    %th Odpowiedź na pytanie 7
+    %th Odpowiedź na pytanie 8
+    %th Odpowiedź na pytanie 9
+    %th Odpowiedź na pytanie 10
+    %th
+    %th
+    %th
+
+  - @exams_answers.each do |exams_answers|
+    %tr
+      %td= @user.find(exams_answers.user_id).name
+      - if exams_answers.exam_id == 999
+        %td Egzamin losowany
+        %td Losowe pytania z poziomu trudności
+      - else
+        - exam = Exam.find(exams_answers.exam_id)
+        %td= exam.title
+        %td= exam.text
+      %td= exams_answers.exam_level
+      - if exams_answers.q1 == true
+        
+        %td.bg-success
+          Poprawna odpowiedź - 
+          = exams_answers.ans1
+      - else
+        
+        %td.bg-danger
+          Błędna odpowiedź -
+          = exams_answers.ans1
+      - if exams_answers.q2 == true
+       
+        %td.bg-success
+          Poprawna odpowiedź - 
+          = exams_answers.ans2
+      - else
+       
+        %td.bg-danger
+          Błędna odpowiedź -
+          = exams_answers.ans2
+      - if exams_answers.q3 == true
+       
+        %td.bg-success
+          Poprawna odpowiedź - 
+          = exams_answers.ans3
+      - else
+        
+        %td.bg-danger
+          Błędna odpowiedź -
+          = exams_answers.ans3
+      - if exams_answers.q4 == true
+   
+        %td.bg-success
+          Poprawna odpowiedź - 
+          = exams_answers.ans4
+      - else
+ 
+        %td.bg-danger
+          Błędna odpowiedź -
+          = exams_answers.ans4
+      - if exams_answers.q5 == true
+        
+        %td.bg-success
+          Poprawna odpowiedź - 
+          = exams_answers.ans5
+      - else
+
+        %td.bg-danger
+          Błędna odpowiedź -
+          = exams_answers.ans5
+      - if exams_answers.q6 == true
+        
+        %td.bg-success
+          Poprawna odpowiedź - 
+          = exams_answers.ans6
+      - else
+   
+        %td.bg-danger
+          Błędna odpowiedź -
+          = exams_answers.ans6
+      - if exams_answers.q7 == true
+        
+        %td.bg-success
+          Poprawna odpowiedź - 
+          = exams_answers.ans7
+      - else
+     
+        %td.bg-danger
+          Błędna odpowiedź -
+          = exams_answers.ans7
+      - if exams_answers.q8 == true
+       
+        %td.bg-success
+          Poprawna odpowiedź - 
+          = exams_answers.ans8
+      - else
+        
+        %td.bg-danger
+          Błędna odpowiedź -
+          = exams_answers.ans8
+      - if exams_answers.q9 == true
+        
+        %td.bg-success
+          Poprawna odpowiedź - 
+          = exams_answers.ans9
+      - else
+        
+        %td.bg-danger
+          Błędna odpowiedź -
+          = exams_answers.ans9
+      - if exams_answers.q10 == true
+       
+        %td.bg-success
+          Poprawna odpowiedź - 
+          = exams_answers.ans10
+      - else
+    
+        %td.bg-danger
+          Błędna odpowiedź -
+          = exams_answers.ans10
+
+
+      %td= link_to 'Pokaż', exam
+
+
+%br
+%div{:align => "center"}
+  = paginate @exams_answers
+%br
+= link_to 'Nowy egzamin', new_exam_path

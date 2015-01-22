@@ -26,6 +26,7 @@
       
       - if branch == 1 
         %td= link_to 'Przejdź', beg_branch_security_path
+        
       - elsif @user_branches_access[branch-2]
         - if @branch[branch-1] == "ABC, Wywiad środowiskowy"
           %td= link_to 'Przejdź', beg_branch_abc_sample_path

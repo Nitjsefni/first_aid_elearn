@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150119101627) do
+ActiveRecord::Schema.define(version: 20150122073107) do
 
   create_table "exam_answers", force: true do |t|
     t.integer  "exam_id",    null: false
@@ -39,6 +39,7 @@ ActiveRecord::Schema.define(version: 20150119101627) do
     t.text     "ans8",       null: false
     t.text     "ans9",       null: false
     t.text     "ans10",      null: false
+    t.text     "exam_level"
   end
 
   create_table "exams", force: true do |t|
@@ -100,7 +101,7 @@ ActiveRecord::Schema.define(version: 20150119101627) do
     t.boolean  "zaawansowany", default: false, null: false
     t.datetime "created_at",                   null: false
     t.datetime "updated_at"
-    t.boolean  "complete_all"
+    t.boolean  "complete_all", default: false, null: false
   end
 
   create_table "users", force: true do |t|

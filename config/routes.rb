@@ -6,7 +6,7 @@ Rails.application.routes.draw do
   get '/exams_test/:exam_id', to: 'exams#take_exam', as: :take_exam
   get '/exams_list', to: 'exams#exam_list', as: :exam_list
 
-  resources :exam_answers, :except => [ 'index','edit', 'update', 'destroy', 'new']
+  resources :exam_answers, :except => ['edit', 'update', 'destroy', 'new']
   get 'exam_answers/new/:exam_id' => 'exam_answers#new', :as => 'new_exam_answer'
   get 'exam_answers/new_random/new' => 'exam_answers#new_random_exam', as: :new_random_exam
 

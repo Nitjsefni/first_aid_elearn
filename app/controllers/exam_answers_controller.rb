@@ -1,16 +1,27 @@
 class ExamAnswersController < ApplicationController
   before_filter :authenticate_user!
-
+  before_filter :auth_inst_admin, :only => [:index]
   before_filter(only: [:show]) { auth_correct_user(params[:id]) } 
 
+def auth_inst_admin
+ unless current_user && (current_user.admin? || current_user.instructor?)
+    flash[:notice] = 'Nie masz dostępu do działów administratora.'
+      
+    redirect_to root_path 
+  end
+end
 def auth_correct_user(id)
 	@exam_answer =  ExamAnswer.find(id)
-	unless current_user && current_user.id == @exam_answer.user_id
+	unless current_user && current_user.id == @exam_answer.user_id || 
 		flash[:notice] = 'Nie masz dostępu do wyników tego egzaminu.'
 	    redirect_to exam_list_path 
 	end
 end
 
+def index
+	@exams_answers = ExamAnswer.all.order("created_at ASC").order("rec_points DESC").pageKN(params[:page]).per(10)
+	@user = User.all
+end
 def show
   	
 
@@ -24,7 +35,7 @@ def show
 		@exam_id = @exam.id
 		@exam_title = @exam.title
 		@exam_text = @exam.text
-		@exam_level = @exam.level
+		
 	end
 	@user = User.find(@exam_answer.user_id)
 	
@@ -42,6 +53,7 @@ end
 def new_random_exam
 	
 	@exam_answer = ExamAnswer.new
+
 	@exam_level = params[:exam_level]
 	@questions = Question.all.where(level: @exam_level)
 	@exam_random_id = 999
@@ -83,12 +95,13 @@ def create
 	
 	@exam_answer = ExamAnswer.new(exam_answer_params)
 	if @exam_answer.exam_id == 999
-		
+		@exam_answer.exam_level = params[:exam_lv]
 		@questions = Question.all.where(level: params[:exam_lv])
 		@exams_questions = @questions.all.where(id: [params[:q1_id], params[:q2_id], params[:q3_id], params[:q4_id], params[:q5_id], params[:q6_id], params[:q7_id], params[:q8_id], params[:q9_id], params[:q10_id]])
 	else
 		@exam = Exam.find(@exam_answer.exam_id)
-		@questions = Question.all.where(level: @exam.level)
+		@exam_answer.exam_level = @exam.level
+		@questions = Question.all.where(level: @exam_answer.exam_level)
 		@exams_questions = @questions.all.where(id: [@exam.question1, @exam.question2, @exam.question3, @exam.question4, @exam.question5, @exam.question6, @exam.question7, @exam.question8, @exam.question9, @exam.question10])
 	end
 	
