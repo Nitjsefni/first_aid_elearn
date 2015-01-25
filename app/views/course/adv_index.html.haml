@@ -55,8 +55,8 @@
 
 %br
 
--if @user_progress_all.try(:p10?)
-  - if @user_progress_all.try(:poczatkujacy?)
+-if @user_progress_all.try(:z10?)
+  - if @user_progress_all.try(:complete_all?)
     %h4
       Ukończyłeś kurs i zdałeś egzamin, gratulacje! 
       %br

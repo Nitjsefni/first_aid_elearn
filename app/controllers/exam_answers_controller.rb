@@ -12,7 +12,7 @@ def auth_inst_admin
 end
 def auth_correct_user(id)
 	@exam_answer =  ExamAnswer.find(id)
-	unless current_user && current_user.id == @exam_answer.user_id || 
+	unless (current_user && current_user.id == @exam_answer.user_id) ||	 (current_user.admin? || current_user.instructor?)
 		flash[:notice] = 'Nie masz dostępu do wyników tego egzaminu.'
 	    redirect_to exam_list_path 
 	end
@@ -155,9 +155,9 @@ def create
 	if @exam_answer.rec_points >= @min
 		@user_progress = UserProgress.find_by user_id: current_user.id
 		if @exam_answer.exam_id == 999
-			if params[:exam_lv] == "Początkujący" && @user_progress.poczatkujacy?
+			if params[:exam_lv] == "Początkujący" && @user_progress.p10?
 				@user_progress.update(poczatkujacy: true)
-			elsif params[:exam_lv] == "Zaawansowany" && @user_progress.zaawansowany?
+			elsif params[:exam_lv] == "Zaawansowany" && @user_progress.z10?
 				@user_progress.update(complete_all: true)
 				@user_progress.update(zaawansowany: true)
 			end
@@ -165,9 +165,9 @@ def create
 
 		else
 
-			if @exam.level == "Początkujący" && @user_progress.poczatkujacy?
+			if @exam.level == "Początkujący" && @user_progress.p10?
 				@user_progress.update(poczatkujacy: true)
-			elsif @exam.level == "Zaawansowany" && @user_progress.zaawansowany?
+			elsif @exam.level == "Zaawansowany" && @user_progress.z10?
 				@user_progress.update(complete_all: true)
 				@user_progress.update(zaawansowany: true)
 			end
@@ -199,7 +199,7 @@ private
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def exam_answer_params
-      params.require(:exam_answer).permit(:id, :exam_id, :user_id, :q1, :q2, :q3, :q4, :q5, :q6, :q7, :q8, :q9, :q10, :rec_points)
+      params.require(:exam_answer).permit(:id, :exam_id, :user_id, :q1, :q2, :q3, :q4, :q5, :q6, :q7, :q8, :q9, :q10, :rec_points, :exam_level)
     end
 end
 

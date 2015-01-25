@@ -16,24 +16,24 @@
     %th Podejdź do egzaminu
 
 
-
+  - i = 0
   - @exams.each do |exam|
     %tr
       %td= exam.title
       %td= exam.text
       %td= exam.level
       %td= exam.points
-      -if exam.id != @exam_answer.try(:exam_id)
+      -if exam.id != @exam_answer[i]
 
-        -if @access_adv.zaawansowany && exam.level == "Zaawansowany" 
+        -if @access_adv.z10 && exam.level == "Zaawansowany" 
           %td= link_to 'Podejdź do egzaminu', new_exam_answer_path(exam.id)
-        - elsif @access_beg.poczatkujacy && exam.level == "Początkujący" 
+        - elsif @access_beg.p10 && exam.level == "Początkujący" 
           %td= link_to 'Podejdź do egzaminu', new_exam_answer_path(exam.id)
         - else
           %td Ukończ najpierw do poziomu odpowiedni kurs!
       -else
         %td Już ukończyłeś ten egzamin
-
+    - i = i+1
 %br
 %div{:align => "center"}
   = paginate @exams 

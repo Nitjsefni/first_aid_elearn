@@ -25,9 +25,9 @@ end
 
   def exam_list
     @exams = Exam.all.order("level ASC").order("points DESC").pageKN(params[:page]).per(10)
-    @exam_answer = ExamAnswer.select("exam_id").where(user_id: current_user.id).take
-    @access_beg = UserProgress.select(:poczatkujacy).where("user_id = ?", current_user.id).take
-    @access_adv = UserProgress.select(:zaawansowany).where("user_id = ?", current_user.id).take
+    @exam_answer = ExamAnswer.select("exam_id").where(user_id: current_user.id).pluck(:exam_id)
+    @access_beg = UserProgress.select(:p10).where("user_id = ?", current_user.id).take
+    @access_adv = UserProgress.select(:z10).where("user_id = ?", current_user.id).take
     
   
   end
