@@ -64,7 +64,7 @@ end
 			flash[:notice] = 'Dział niedostępny, za mało stworzonych pytań.'
 	    	redirect_to beg_course_index_path and return
 	    end
-		render "course/course_beg/branch_4_consciousness"
+		render "course/course_beg/branch_4_consciousness_lose"
 	end
 
 	def beg_branch_scald_frostbite
