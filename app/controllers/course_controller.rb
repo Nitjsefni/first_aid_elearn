@@ -103,13 +103,13 @@ end
 		render "course/course_beg/branch_8_epilepsy"
 	end
 
-	def beg_branch_chocking
+	def beg_branch_choking
 		@questions = Question.order("RAND()").where(level: "Poczatkujacy", branch: "Zadławienia").limit(5)
 		if @questions.count < 5
 			flash[:notice] = 'Dział niedostępny, za mało stworzonych pytań.'
 	    	redirect_to beg_course_index_path and return
 	    end
-		render "course/course_beg/branch_9_chocking"
+		render "course/course_beg/branch_9_choking"
 	end
 
 	def beg_branch_CPR
